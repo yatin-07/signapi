@@ -1,22 +1,28 @@
-import React, { Componenet } from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css";
 
-class App extends Componenet {
-constructor(){
-  super()
+import Signin from "./componenet/signin";
+
+class App extends Component {
+constructor() {
+  super();
   this.state = {
     username: '',
     email: '',
-    password: ''
+    password: '',
+    route: 'signin'
 
   }
 }
 
+onRouteChange = () => {
+this.setState({route: 'home'});
+}
+
   render(){
     return(
-      <div>
-<h1>hello</h1>
+      <div className="App">
+            <Signin onRouteChange={this.onRouteChange}/>
       </div>
       );
   }
