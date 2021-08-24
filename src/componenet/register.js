@@ -1,41 +1,54 @@
-  
-import React from 'react';
-
+import React from "react";
+import instance from "../utility/axios";
 class Register extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
-      username: ''
-    }
+      email: "",
+      password: "",
+      username: "",
+    };
   }
 
   onNameChange = (event) => {
-    this.setState({username: event.target.value})
-  }
+    this.setState({ username: event.target.value });
+  };
 
   onEmailChange = (event) => {
-    this.setState({email: event.target.value})
-  }
+    this.setState({ email: event.target.value });
+  };
 
   onPasswordChange = (event) => {
-    this.setState({password: event.target.value})
-  }
+    this.setState({ password: event.target.value });
+  };
 
-  onSubmitSignIn = () => {
-    fetch('http://localhost:3001/users/register', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
+  onSubmitSignIn = async () => {
+    const response = await instance
+      .post("/register", {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,
-        
       })
-    })
-    //   
-  }
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    console.log(response);
+
+    // fetch('http://localhost:3001/users/register', {
+    //   method: 'post',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({
+    //     username: this.state.username,
+    //     email: this.state.email,
+    //     password: this.state.password,
+
+    // })
+    // })
+    //
+  };
 
   render() {
     return (
@@ -45,7 +58,9 @@ class Register extends React.Component {
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0">Register</legend>
               <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
+                <label className="db fw6 lh-copy f6" htmlFor="name">
+                  Name
+                </label>
                 <input
                   className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="text"
@@ -55,7 +70,9 @@ class Register extends React.Component {
                 />
               </div>
               <div className="mt3">
-                <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+                <label className="db fw6 lh-copy f6" htmlFor="email-address">
+                  Email
+                </label>
                 <input
                   className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="email"
@@ -65,7 +82,9 @@ class Register extends React.Component {
                 />
               </div>
               <div className="mv3">
-                <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                <label className="db fw6 lh-copy f6" htmlFor="password">
+                  Password
+                </label>
                 <input
                   className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="password"
