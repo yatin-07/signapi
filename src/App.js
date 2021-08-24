@@ -21,9 +21,9 @@ class App extends Component {
     this.state = initialState
   }
 
-  onInputChange = (event) => {
-    this.setState({input: event.target.value});
-  }
+  // onInputChange = (event) => {
+  //   this.setState({input: event.target.value});
+  // }
 
 
   onRouteChange = (route) => {
