@@ -30,24 +30,14 @@ class Register extends React.Component {
         password: this.state.password,
       })
       .then(function (response) {
+        // eslint-disable-next-line no-undef
+        alert("sign in");
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
     console.log(response);
-
-    // fetch('http://localhost:3001/users/register', {
-    //   method: 'post',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify({
-    //     username: this.state.username,
-    //     email: this.state.email,
-    //     password: this.state.password,
-
-    // })
-    // })
-    //
   };
 
   render() {

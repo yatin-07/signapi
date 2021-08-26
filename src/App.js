@@ -6,34 +6,32 @@ import Register from "./componenet/register";
 //import axios from "axios";
 
 const initialState = {
-  route: 'signin',
+  route: "signin",
   isSignedIn: false,
   user: {
-    name: '',
-    email: '',
-    
-  }
-}
+    name: "",
+    email: "",
+  },
+};
 
 class App extends Component {
   constructor() {
     super();
-    this.state = initialState
+    this.state = initialState;
   }
 
   // onInputChange = (event) => {
   //   this.setState({input: event.target.value});
   // }
 
-
   onRouteChange = (route) => {
-    if (route === 'signout') {
-      this.setState(initialState)
-    } else if (route === 'home') {
-      this.setState({isSignedIn: true})
+    if (route === "signout") {
+      this.setState(initialState);
+    } else if (route === "home") {
+      this.setState({ isSignedIn: true });
     }
-    this.setState({route: route});
-  }
+    this.setState({ route: route });
+  };
 
   render() {
     return (
